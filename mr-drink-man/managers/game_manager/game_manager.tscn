@@ -10,8 +10,9 @@
 [node name="GameManager" type="Node" unique_id=1927945575]
 script = ExtResource("1_lh1k3")
 
-[node name="StateMachine" type="Node" parent="." unique_id=558462502]
+[node name="StateMachine" type="Node" parent="." unique_id=558462502 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_dmudu")
+initial_state = NodePath("Setup")
 metadata/_custom_type_script = "uid://buubvx0dvcf5b"
 
 [node name="Running" type="Node" parent="StateMachine" unique_id=308579107]
