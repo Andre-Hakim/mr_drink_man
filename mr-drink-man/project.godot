@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MrDrinkMan"
-run/main_scene="uid://c8hokf8asx0d"
+run/main_scene="uid://dtaoxhu0o617p"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
