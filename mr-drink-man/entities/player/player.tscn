@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cvdv7b5a3w0fc" path="res://assets/sprites/player/PlayerIdle.png" id="8_26q78"]
 [ext_resource type="Texture2D" uid="uid://bro8me754tcfy" path="res://assets/sprites/player/HandIdle.png" id="9_bectd"]
 [ext_resource type="Texture2D" uid="uid://cjka8c65ysm0p" path="res://assets/sprites/player/HandEnterScene.png" id="10_wvtmh"]
+[ext_resource type="Texture2D" uid="uid://bbija8fmrwva7" path="res://assets/sprites/player/HandWindUp.png" id="13_j3ovn"]
+[ext_resource type="Texture2D" uid="uid://b006ne7rlqfvs" path="res://assets/sprites/player/HandWindUpIdle.png" id="14_afbqv"]
 
 [sub_resource type="Animation" id="Animation_7thud"]
 length = 0.001
@@ -58,6 +60,54 @@ tracks/3/path = NodePath("HandEnterSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HandWindupSprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HandWindupSprite:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HandWindupIdleSprite:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HandWindupIdleSprite:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -149,14 +199,142 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_afbqv"]
 resource_name = "hand_windup"
+length = 0.5000125
 step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HandEnterSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HandWindupSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HandWindupSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HandWindupIdleSprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gx6sm"]
+resource_name = "hand_windup_idle"
+length = 1.0000333631366491
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HandEnterSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HandWindupSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HandWindupIdleSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HandWindupIdleSprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7thud"]
 _data = {
 &"RESET": SubResource("Animation_7thud"),
 &"hand_enter": SubResource("Animation_bectd"),
 &"hand_idle": SubResource("Animation_wvtmh"),
-&"hand_windup": SubResource("Animation_afbqv")
+&"hand_windup": SubResource("Animation_afbqv"),
+&"hand_windup_idle": SubResource("Animation_gx6sm")
 }
 
 [sub_resource type="Animation" id="Animation_j3ovn"]
@@ -261,9 +439,14 @@ vframes = 2
 [node name="HandWindupSprite" type="Sprite2D" parent="." unique_id=669917448]
 visible = false
 position = Vector2(441, 38)
-texture = ExtResource("10_wvtmh")
-hframes = 6
-vframes = 2
+texture = ExtResource("13_j3ovn")
+hframes = 5
+
+[node name="HandWindupIdleSprite" type="Sprite2D" parent="." unique_id=1273433328]
+visible = false
+position = Vector2(441, 38)
+texture = ExtResource("14_afbqv")
+hframes = 3
 
 [node name="HandAnimPlayer" type="AnimationPlayer" parent="." unique_id=1196097077]
 libraries/ = SubResource("AnimationLibrary_7thud")
