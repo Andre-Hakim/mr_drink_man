@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bum7ewp61iw0v" path="res://managers/game_manager/game_manager.tscn" id="1_v0l8b"]
 [ext_resource type="PackedScene" uid="uid://bgo7kekberwmk" path="res://user_interface/press_begin/press_begin.tscn" id="1_wp4xf"]
 [ext_resource type="Script" uid="uid://d2kbjv6mqdnex" path="res://managers/input_manager/input_manager.gd" id="2_v0l8b"]
+[ext_resource type="PackedScene" uid="uid://ys35qp31elf3" path="res://entities/player/player.tscn" id="4_brvut"]
 
 [node name="Main" type="Node2D" unique_id=1683398638]
 
@@ -17,3 +18,6 @@ visible = false
 
 [node name="InputManager" type="Node" parent="Managers" unique_id=1259918203]
 script = ExtResource("2_v0l8b")
+
+[node name="Player" parent="." unique_id=257907498 instance=ExtResource("4_brvut")]
+position = Vector2(214, 538)

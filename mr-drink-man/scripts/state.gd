@@ -1,6 +1,8 @@
 extends Node
 class_name State
 
+@export var animation_player: AnimationPlayer
+
 signal transitioned(state, new_state_name)
 
 func enter():
