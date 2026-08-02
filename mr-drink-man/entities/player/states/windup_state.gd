@@ -1,11 +1,10 @@
 extends State
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func enter():
+	hand_animation_player.play("hand_windup")
+	await hand_animation_player.animation_finished
+	transitioned.emit(self, "windupidle")
+	
+func physics_update(_delta: float):
+	if Input.is_action_just_pressed("right_hand"):
+		transitioned.emit(self, "grabbed")

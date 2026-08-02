@@ -11,6 +11,11 @@
 
 [node name="Background" parent="." unique_id=40100223 instance=ExtResource("1_0ha60")]
 
+[node name="Table" type="Sprite2D" parent="Background" unique_id=1268104392]
+position = Vector2(497.5, 610)
+scale = Vector2(1.5507813, 1.5344827)
+texture = ExtResource("6_4j5ol")
+
 [node name="UICanvas" type="CanvasLayer" parent="." unique_id=98063132]
 
 [node name="PressBegin" parent="UICanvas" unique_id=798357849 instance=ExtResource("1_wp4xf")]
@@ -25,8 +30,3 @@ script = ExtResource("2_v0l8b")
 
 [node name="Player" parent="." unique_id=257907498 instance=ExtResource("4_brvut")]
 position = Vector2(224, 393)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1268104392]
-position = Vector2(627.6875, 610)
-scale = Vector2(2.3930662, 1.5344827)
-texture = ExtResource("6_4j5ol")
