@@ -1,7 +1,6 @@
 extends State
 
 func enter():
-	on_enter_audio.play()
 	main_animation_player.play("hand_grabbing")
 	await main_animation_player.animation_finished
 	transitioned.emit(self, "grabidle")
