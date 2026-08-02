@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ys35qp31elf3"]
 
 [ext_resource type="Script" uid="uid://bxm6diglgalls" path="res://entities/player/player.gd" id="1_8fjmc"]
+[ext_resource type="Shader" uid="uid://bv35pp08df3q8" path="res://shaders/color_tint_shader.gdshader" id="1_mtric"]
 [ext_resource type="Script" uid="uid://buubvx0dvcf5b" path="res://scripts/state_machine.gd" id="1_symyc"]
 [ext_resource type="Script" uid="uid://dnmvarsbhwpwk" path="res://entities/player/states/idle_state.gd" id="2_abrql"]
 [ext_resource type="Script" uid="uid://bykkrcrsc4w4k" path="res://entities/player/states/hand_enter.gd" id="3_7thud"]
@@ -19,6 +20,12 @@
 [ext_resource type="Texture2D" uid="uid://b006ne7rlqfvs" path="res://assets/sprites/player/HandWindUpIdle.png" id="14_afbqv"]
 [ext_resource type="Texture2D" uid="uid://dkv80rxi2bly5" path="res://assets/sprites/player/HandGrab.png" id="18_b2kln"]
 [ext_resource type="Texture2D" uid="uid://c6diunjkhdey" path="res://assets/sprites/player/HandGrabIdle.png" id="19_we0b7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mtric"]
+shader = ExtResource("1_mtric")
+shader_parameter/color = Color(1, 0.5860146, 0.521475, 1)
+shader_parameter/tint_factor = 0.0
+shader_parameter/fade = 1.0
 
 [sub_resource type="Animation" id="Animation_7thud"]
 length = 0.001
@@ -165,6 +172,18 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("HandWindupIdleSprite:material:shader_parameter/tint_factor")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_bectd"]
@@ -496,7 +515,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_gx6sm"]
 resource_name = "hand_windup_idle"
-length = 0.1280238
+length = 0.2500125
 loop_mode = 1
 step = 0.125
 tracks/0/type = "value"
@@ -554,10 +573,10 @@ tracks/4/path = NodePath("HandWindupIdleSprite:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.032539643, 0.064594924),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.05489138, 0.10650444, 0.12892224, 0.18381362, 0.23542668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [0, 1, 2, 0, 1, 2]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -570,6 +589,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HandWindupIdleSprite:material:shader_parameter/tint_factor")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.006220501, 0.12968665, 0.2441734),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7thud"]
@@ -851,6 +882,7 @@ hframes = 5
 
 [node name="HandWindupIdleSprite" type="Sprite2D" parent="." unique_id=1273433328]
 visible = false
+material = SubResource("ShaderMaterial_mtric")
 position = Vector2(441, 38)
 texture = ExtResource("14_afbqv")
 hframes = 3
