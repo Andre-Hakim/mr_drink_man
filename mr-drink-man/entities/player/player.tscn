@@ -6,7 +6,8 @@
 [ext_resource type="Script" uid="uid://boutf1pckpecd" path="res://entities/player/states/windup_state.gd" id="3_bls4j"]
 [ext_resource type="Script" uid="uid://dstas1hddgtei" path="res://entities/player/states/grabbed_state.gd" id="4_fkugw"]
 [ext_resource type="Script" uid="uid://yyamu8h28a4n" path="res://entities/player/states/drinking_state.gd" id="5_fkugw"]
-[ext_resource type="Script" uid="uid://c2sc6ci2aj77q" path="res://entities/player/states/set_down_state.gd" id="7_qiwj3"]
+[ext_resource type="Script" uid="uid://b0a31qrhck7sc" path="res://entities/player/states/raise_lower_statet.gd" id="6_qiwj3"]
+[ext_resource type="Texture2D" uid="uid://cvdv7b5a3w0fc" path="res://assets/sprites/player/PlayerIdle.png" id="8_26q78"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qiwj3"]
 
@@ -30,12 +31,16 @@ animation_player = NodePath("../../AnimationPlayer")
 script = ExtResource("4_fkugw")
 animation_player = NodePath("../../AnimationPlayer")
 
+[node name="RaiseLower" type="Node" parent="StateMachine" unique_id=1473143384 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("6_qiwj3")
+animation_player = NodePath("../../AnimationPlayer")
+
 [node name="Drinking" type="Node" parent="StateMachine" unique_id=1920305138]
 script = ExtResource("5_fkugw")
 
-[node name="SetDown" type="Node" parent="StateMachine" unique_id=794275463 node_paths=PackedStringArray("animation_player")]
-script = ExtResource("7_qiwj3")
-animation_player = NodePath("../../AnimationPlayer")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1981873834]
 libraries/ = SubResource("AnimationLibrary_qiwj3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1577205588]
+texture = ExtResource("8_26q78")
+hframes = 3

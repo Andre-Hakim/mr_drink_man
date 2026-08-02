@@ -20,4 +20,4 @@ visible = false
 script = ExtResource("2_v0l8b")
 
 [node name="Player" parent="." unique_id=257907498 instance=ExtResource("4_brvut")]
-position = Vector2(214, 538)
+position = Vector2(224, 393)
