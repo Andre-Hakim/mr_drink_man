@@ -9,6 +9,7 @@ var current_idle_time: float = 0.0
 
 func enter():
 	current_idle_time = 0.0
+	on_enter_audio.play()
 	current_rand = randi_range(1, rand_range)
 	main_animation_player.play("baby_look")
 

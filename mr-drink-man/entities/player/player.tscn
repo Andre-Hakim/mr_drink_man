@@ -5,13 +5,16 @@
 [ext_resource type="Script" uid="uid://dnmvarsbhwpwk" path="res://entities/player/states/idle_state.gd" id="2_abrql"]
 [ext_resource type="Script" uid="uid://bykkrcrsc4w4k" path="res://entities/player/states/hand_enter.gd" id="3_7thud"]
 [ext_resource type="Script" uid="uid://boutf1pckpecd" path="res://entities/player/states/windup_state.gd" id="3_bls4j"]
-[ext_resource type="Script" uid="uid://dstas1hddgtei" path="res://entities/player/states/grabbed_state.gd" id="4_fkugw"]
+[ext_resource type="Script" uid="uid://dstas1hddgtei" path="res://entities/player/states/grabbing_state.gd" id="4_fkugw"]
 [ext_resource type="Script" uid="uid://yyamu8h28a4n" path="res://entities/player/states/drinking_state.gd" id="5_fkugw"]
 [ext_resource type="Script" uid="uid://n3wi26uw03m" path="res://entities/player/states/windup_idle_state.gd" id="6_a1qjk"]
 [ext_resource type="Script" uid="uid://b0a31qrhck7sc" path="res://entities/player/states/raise_lower_statet.gd" id="6_qiwj3"]
 [ext_resource type="Texture2D" uid="uid://cvdv7b5a3w0fc" path="res://assets/sprites/player/PlayerIdle.png" id="8_26q78"]
 [ext_resource type="Texture2D" uid="uid://bro8me754tcfy" path="res://assets/sprites/player/HandIdle.png" id="9_bectd"]
+[ext_resource type="Script" uid="uid://ct6yw8is427h1" path="res://entities/player/states/grab_idle_state.gd" id="10_3wlsy"]
 [ext_resource type="Texture2D" uid="uid://cjka8c65ysm0p" path="res://assets/sprites/player/HandEnterScene.png" id="10_wvtmh"]
+[ext_resource type="Texture2D" uid="uid://bhr1cafkjuou1" path="res://assets/sprites/player/PlayerDrinking.png" id="11_gx6sm"]
+[ext_resource type="Texture2D" uid="uid://crqinj82jwsko" path="res://assets/sprites/player/PlayerTipHeadBack.png" id="11_yqrof"]
 [ext_resource type="Texture2D" uid="uid://bbija8fmrwva7" path="res://assets/sprites/player/HandWindUp.png" id="13_j3ovn"]
 [ext_resource type="Texture2D" uid="uid://b006ne7rlqfvs" path="res://assets/sprites/player/HandWindUpIdle.png" id="14_afbqv"]
 
@@ -154,6 +157,14 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 }
+
+[sub_resource type="Animation" id="Animation_b2kln"]
+resource_name = "hand_grab_idle"
+step = 0.05
+
+[sub_resource type="Animation" id="Animation_3wlsy"]
+resource_name = "hand_grabbing"
+step = 0.05
 
 [sub_resource type="Animation" id="Animation_wvtmh"]
 resource_name = "hand_idle"
@@ -332,6 +343,8 @@ tracks/4/keys = {
 _data = {
 &"RESET": SubResource("Animation_7thud"),
 &"hand_enter": SubResource("Animation_bectd"),
+&"hand_grab_idle": SubResource("Animation_b2kln"),
+&"hand_grabbing": SubResource("Animation_3wlsy"),
 &"hand_idle": SubResource("Animation_wvtmh"),
 &"hand_windup": SubResource("Animation_afbqv"),
 &"hand_windup_idle": SubResource("Animation_gx6sm")
@@ -342,10 +355,58 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GuySprite:frame")
+tracks/0/path = NodePath("GuyIdleSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GuyIdleSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GuyTiltHeadSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GuyDrinkingSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GuyTiltHeadSprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -360,7 +421,7 @@ step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GuySprite:frame")
+tracks/0/path = NodePath("GuyIdleSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -369,11 +430,101 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GuyIdleSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0063675),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GuyTiltHeadSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0063675),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GuyDrinkingSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0063675),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_yqrof"]
+resource_name = "player_tip_head"
+length = 0.5000125
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GuyTiltHeadSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GuyIdleSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GuyDrinkingSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GuyTiltHeadSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.25164905, 0.36644968),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 2, 3]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j3ovn"]
 _data = {
 &"RESET": SubResource("Animation_j3ovn"),
-&"player_idle": SubResource("Animation_a1qjk")
+&"player_idle": SubResource("Animation_a1qjk"),
+&"player_tip_head": SubResource("Animation_yqrof")
 }
 
 [node name="Player" type="Node2D" unique_id=257907498]
@@ -404,10 +555,14 @@ script = ExtResource("6_a1qjk")
 main_animation_player = NodePath("../../HandAnimPlayer")
 secondary_animation_player = NodePath("../../PlayerAnimPlayer")
 
-[node name="Grabbed" type="Node" parent="StateMachine" unique_id=753399545 node_paths=PackedStringArray("main_animation_player", "secondary_animation_player")]
+[node name="Grabbing" type="Node" parent="StateMachine" unique_id=753399545 node_paths=PackedStringArray("main_animation_player", "secondary_animation_player")]
 script = ExtResource("4_fkugw")
 main_animation_player = NodePath("../../HandAnimPlayer")
 secondary_animation_player = NodePath("../../PlayerAnimPlayer")
+
+[node name="GrabIdle" type="Node" parent="StateMachine" unique_id=1947546563 node_paths=PackedStringArray("main_animation_player")]
+script = ExtResource("10_3wlsy")
+main_animation_player = NodePath("../../HandAnimPlayer")
 
 [node name="RaiseLower" type="Node" parent="StateMachine" unique_id=1473143384 node_paths=PackedStringArray("main_animation_player", "secondary_animation_player")]
 script = ExtResource("6_qiwj3")
@@ -419,9 +574,20 @@ script = ExtResource("5_fkugw")
 main_animation_player = NodePath("../../HandAnimPlayer")
 secondary_animation_player = NodePath("../../PlayerAnimPlayer")
 
-[node name="GuySprite" type="Sprite2D" parent="." unique_id=1577205588]
+[node name="GuyIdleSprite" type="Sprite2D" parent="." unique_id=1577205588]
+visible = false
 texture = ExtResource("8_26q78")
 hframes = 3
+
+[node name="GuyTiltHeadSprite" type="Sprite2D" parent="." unique_id=1766799878]
+visible = false
+texture = ExtResource("11_yqrof")
+hframes = 4
+
+[node name="GuyDrinkingSprite" type="Sprite2D" parent="." unique_id=748243426]
+visible = false
+texture = ExtResource("11_gx6sm")
+hframes = 4
 
 [node name="HandSprite" type="Sprite2D" parent="." unique_id=2076974042]
 visible = false

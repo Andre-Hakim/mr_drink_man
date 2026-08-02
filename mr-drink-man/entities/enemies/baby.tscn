@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://017a6hptwi1q" path="res://entities/enemies/baby/states/look_state.gd" id="5_ur13w"]
 [ext_resource type="Shader" uid="uid://bv35pp08df3q8" path="res://shaders/color_tint_shader.gdshader" id="7_mi4e3"]
 [ext_resource type="Texture2D" uid="uid://ukgrf2f2o8yo" path="res://assets/sprites/baby/BabyLooking.png" id="8_odlau"]
+[ext_resource type="AudioStream" uid="uid://djffavvd8wfdf" path="res://assets/sfx/enemeis/baby/baby_look.mp3" id="10_ovw6n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ovw6n"]
 shader = ExtResource("7_mi4e3")
@@ -258,6 +259,11 @@ _data = {
 &"baby_turn": SubResource("Animation_ur13w")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ovw6n"]
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("10_ovw6n")
+
 [node name="Baby" type="Node2D" unique_id=1110065274]
 script = ExtResource("1_icij1")
 
@@ -275,10 +281,11 @@ main_animation_player = NodePath("../../BabyAnimPlayer")
 script = ExtResource("4_g6lh5")
 main_animation_player = NodePath("../../BabyAnimPlayer")
 
-[node name="Look" type="Node" parent="StateMachine" unique_id=1748436414 node_paths=PackedStringArray("main_animation_player")]
+[node name="Look" type="Node" parent="StateMachine" unique_id=1748436414 node_paths=PackedStringArray("main_animation_player", "on_enter_audio")]
 script = ExtResource("5_ur13w")
 rand_range = 4
 main_animation_player = NodePath("../../BabyAnimPlayer")
+on_enter_audio = NodePath("../../BabyLookSound")
 
 [node name="BabyIdleSprite" type="Sprite2D" parent="." unique_id=1891211842]
 texture = ExtResource("2_gvo00")
@@ -298,3 +305,6 @@ texture = ExtResource("8_odlau")
 libraries/ = SubResource("AnimationLibrary_g6lh5")
 
 [node name="BabyTurnSound" type="AudioStreamPlayer2D" parent="." unique_id=700025890]
+
+[node name="BabyLookSound" type="AudioStreamPlayer2D" parent="." unique_id=1072140126]
+stream = SubResource("AudioStreamRandomizer_ovw6n")
