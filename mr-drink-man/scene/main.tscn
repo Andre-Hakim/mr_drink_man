@@ -9,6 +9,7 @@
 [node name="UICanvas" type="CanvasLayer" parent="." unique_id=98063132]
 
 [node name="PressBegin" parent="UICanvas" unique_id=798357849 instance=ExtResource("1_wp4xf")]
+visible = false
 
 [node name="Managers" type="Node" parent="." unique_id=887325753]
 

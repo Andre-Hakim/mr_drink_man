@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ys35qp31elf3"]
+
+[ext_resource type="Script" uid="uid://buubvx0dvcf5b" path="res://scripts/state_machine.gd" id="1_symyc"]
+[ext_resource type="Script" uid="uid://dnmvarsbhwpwk" path="res://entities/player/states/idle_state.gd" id="2_abrql"]
+
+[node name="Player" type="Node2D" unique_id=257907498]
+
+[node name="StateMachine" type="Node" parent="." unique_id=511823909 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_symyc")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://buubvx0dvcf5b"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=781956945]
+script = ExtResource("2_abrql")

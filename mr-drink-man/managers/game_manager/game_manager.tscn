@@ -15,11 +15,11 @@ script = ExtResource("2_dmudu")
 initial_state = NodePath("Setup")
 metadata/_custom_type_script = "uid://buubvx0dvcf5b"
 
-[node name="Running" type="Node" parent="StateMachine" unique_id=308579107]
-script = ExtResource("3_q3g20")
-
 [node name="Setup" type="Node" parent="StateMachine" unique_id=314114395]
 script = ExtResource("4_3hdek")
+
+[node name="Running" type="Node" parent="StateMachine" unique_id=308579107]
+script = ExtResource("3_q3g20")
 
 [node name="Lose" type="Node" parent="StateMachine" unique_id=14721550]
 script = ExtResource("3_xl6yf")
