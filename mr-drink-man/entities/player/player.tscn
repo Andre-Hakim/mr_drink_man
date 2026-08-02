@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://b006ne7rlqfvs" path="res://assets/sprites/player/HandWindUpIdle.png" id="14_afbqv"]
 [ext_resource type="Texture2D" uid="uid://dkv80rxi2bly5" path="res://assets/sprites/player/HandGrab.png" id="18_b2kln"]
 [ext_resource type="Texture2D" uid="uid://c6diunjkhdey" path="res://assets/sprites/player/HandGrabIdle.png" id="19_we0b7"]
+[ext_resource type="AudioStream" uid="uid://c111otj4dnqmm" path="res://assets/sfx/player/hand_wind_swoosh.wav" id="20_mtric"]
+[ext_resource type="AudioStream" uid="uid://c3j4fxp4yttr8" path="res://assets/sfx/player/hand_grab.mp3" id="22_221hk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mtric"]
 shader = ExtResource("1_mtric")
@@ -811,11 +813,12 @@ sm_owner = NodePath("../..")
 main_animation_player = NodePath("../../HandAnimPlayer")
 secondary_animation_player = NodePath("../../PlayerAnimPlayer")
 
-[node name="Windup" type="Node" parent="StateMachine" unique_id=1629689736 node_paths=PackedStringArray("sm_owner", "main_animation_player", "secondary_animation_player")]
+[node name="Windup" type="Node" parent="StateMachine" unique_id=1629689736 node_paths=PackedStringArray("sm_owner", "main_animation_player", "secondary_animation_player", "on_enter_audio")]
 script = ExtResource("3_bls4j")
 sm_owner = NodePath("../..")
 main_animation_player = NodePath("../../HandAnimPlayer")
 secondary_animation_player = NodePath("../../PlayerAnimPlayer")
+on_enter_audio = NodePath("../../HandWindBackWoosh")
 
 [node name="WindupIdle" type="Node" parent="StateMachine" unique_id=362340511 node_paths=PackedStringArray("sm_owner", "main_animation_player", "secondary_animation_player")]
 script = ExtResource("6_a1qjk")
@@ -823,11 +826,12 @@ sm_owner = NodePath("../..")
 main_animation_player = NodePath("../../HandAnimPlayer")
 secondary_animation_player = NodePath("../../PlayerAnimPlayer")
 
-[node name="Grabbing" type="Node" parent="StateMachine" unique_id=753399545 node_paths=PackedStringArray("sm_owner", "main_animation_player", "secondary_animation_player")]
+[node name="Grabbing" type="Node" parent="StateMachine" unique_id=753399545 node_paths=PackedStringArray("sm_owner", "main_animation_player", "secondary_animation_player", "on_enter_audio")]
 script = ExtResource("4_fkugw")
 sm_owner = NodePath("../..")
 main_animation_player = NodePath("../../HandAnimPlayer")
 secondary_animation_player = NodePath("../../PlayerAnimPlayer")
+on_enter_audio = NodePath("../../HandGrab")
 
 [node name="GrabIdle" type="Node" parent="StateMachine" unique_id=1947546563 node_paths=PackedStringArray("sm_owner", "main_animation_player")]
 script = ExtResource("10_3wlsy")
@@ -906,3 +910,9 @@ libraries/ = SubResource("AnimationLibrary_7thud")
 [node name="PlayerAnimPlayer" type="AnimationPlayer" parent="." unique_id=1022101283]
 libraries/ = SubResource("AnimationLibrary_j3ovn")
 autoplay = &"player_idle"
+
+[node name="HandWindBackWoosh" type="AudioStreamPlayer2D" parent="." unique_id=1319037209]
+stream = ExtResource("20_mtric")
+
+[node name="HandGrab" type="AudioStreamPlayer2D" parent="." unique_id=1027356960]
+stream = ExtResource("22_221hk")

@@ -1,6 +1,7 @@
 extends State
 
 func enter():
+	on_enter_audio.play()
 	main_animation_player.play("hand_windup")
 	await main_animation_player.animation_finished
 	transitioned.emit(self, "windupidle")
