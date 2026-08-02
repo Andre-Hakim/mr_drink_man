@@ -34,7 +34,7 @@ visible = false
 script = ExtResource("2_v0l8b")
 
 [node name="BabyBottle" parent="." unique_id=788895805 instance=ExtResource("8_of57s")]
-position = Vector2(459, 427)
+position = Vector2(521, 414)
 
 [node name="Player" parent="." unique_id=257907498 instance=ExtResource("4_brvut")]
 position = Vector2(224, 393)

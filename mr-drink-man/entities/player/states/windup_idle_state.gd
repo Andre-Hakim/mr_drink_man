@@ -5,4 +5,4 @@ func enter():
 
 func physics_update(_delta: float):
 	if Input.is_action_just_pressed("right_hand"):
-		transitioned.emit(self, "grabbed")
+		transitioned.emit(self, "grabbing")
