@@ -1,8 +1,8 @@
 extends State
 
 func enter():
-	hand_animation_player.play("hand_windup")
-	await hand_animation_player.animation_finished
+	main_animation_player.play("hand_windup")
+	await main_animation_player.animation_finished
 	transitioned.emit(self, "windupidle")
 	
 func physics_update(_delta: float):

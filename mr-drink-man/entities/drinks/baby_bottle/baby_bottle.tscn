@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cuh51v0dukhr5"]
+
+[ext_resource type="Texture2D" uid="uid://jedb6jjgfghp" path="res://assets/sprites/drinks/BottleIdle.png" id="1_6iy5h"]
+
+[sub_resource type="Animation" id="Animation_skqj5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottleSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6iy5h"]
+resource_name = "bottle_idle"
+length = 0.2500125
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottleSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_skqj5"]
+_data = {
+&"RESET": SubResource("Animation_skqj5"),
+&"bottle_idle": SubResource("Animation_6iy5h")
+}
+
+[node name="BabyBottle" type="Node2D" unique_id=788895805]
+
+[node name="BottleSprite" type="Sprite2D" parent="." unique_id=1190006942]
+texture = ExtResource("1_6iy5h")
+hframes = 2
+
+[node name="BottleAnimPlayer" type="AnimationPlayer" parent="." unique_id=1446635149]
+libraries/ = SubResource("AnimationLibrary_skqj5")
+autoplay = &"bottle_idle"

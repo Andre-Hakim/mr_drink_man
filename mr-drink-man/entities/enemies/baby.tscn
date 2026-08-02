@@ -1,0 +1,300 @@
+[gd_scene format=3 uid="uid://dp1bcvjfcljsk"]
+
+[ext_resource type="Script" uid="uid://b3ls6oont0yo8" path="res://entities/enemies/baby.gd" id="1_icij1"]
+[ext_resource type="Texture2D" uid="uid://dstp1vser8aqe" path="res://assets/sprites/baby/BabyIdle.png" id="2_gvo00"]
+[ext_resource type="Script" uid="uid://buubvx0dvcf5b" path="res://scripts/state_machine.gd" id="2_mqtpg"]
+[ext_resource type="Script" uid="uid://dagdgkpbjqau2" path="res://entities/enemies/baby/states/idle_state.gd" id="3_li87b"]
+[ext_resource type="Texture2D" uid="uid://sfyva07s4t5d" path="res://assets/sprites/baby/BabyTurning.png" id="3_ofkgu"]
+[ext_resource type="Script" uid="uid://cbjjox6tnma4e" path="res://entities/enemies/baby/states/turn_state.gd" id="4_g6lh5"]
+[ext_resource type="Script" uid="uid://017a6hptwi1q" path="res://entities/enemies/baby/states/look_state.gd" id="5_ur13w"]
+[ext_resource type="Shader" uid="uid://bv35pp08df3q8" path="res://shaders/color_tint_shader.gdshader" id="7_mi4e3"]
+[ext_resource type="Texture2D" uid="uid://ukgrf2f2o8yo" path="res://assets/sprites/baby/BabyLooking.png" id="8_odlau"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ovw6n"]
+shader = ExtResource("7_mi4e3")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/tint_factor = 0.0
+shader_parameter/fade = 1.0
+
+[sub_resource type="Animation" id="Animation_g6lh5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BabyIdleSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BabyIdleSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BabyTurnSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BabyLookSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BabyTurnSprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BabyTurnSprite:material:shader_parameter/tint_factor")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_li87b"]
+resource_name = "baby_idle"
+length = 0.3750125
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BabyIdleSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BabyIdleSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BabyTurnSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BabyLookSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_odlau"]
+resource_name = "baby_look"
+length = 0.40002000596076254
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BabyLookSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BabyTurnSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BabyIdleSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ur13w"]
+resource_name = "baby_turn"
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BabyIdleSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BabyTurnSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BabyLookSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BabyTurnSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BabyTurnSprite:material:shader_parameter/tint_factor")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.04906348, 0.10551328, 0.16308099, 0.21214446, 0.26859426, 0.32919648, 0.37825996, 0.43470976, 0.4979762, 0.5470397, 0.6034895, 0.6621943, 0.7112578, 0.7677076, 0.816529, 0.8655925, 0.92204225),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6lh5"]
+_data = {
+&"RESET": SubResource("Animation_g6lh5"),
+&"baby_idle": SubResource("Animation_li87b"),
+&"baby_look": SubResource("Animation_odlau"),
+&"baby_turn": SubResource("Animation_ur13w")
+}
+
+[node name="Baby" type="Node2D" unique_id=1110065274]
+script = ExtResource("1_icij1")
+
+[node name="StateMachine" type="Node" parent="." unique_id=934367513 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_mqtpg")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://buubvx0dvcf5b"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=189619616 node_paths=PackedStringArray("main_animation_player")]
+script = ExtResource("3_li87b")
+rand_range = 4
+main_animation_player = NodePath("../../BabyAnimPlayer")
+
+[node name="Turn" type="Node" parent="StateMachine" unique_id=582362336 node_paths=PackedStringArray("main_animation_player")]
+script = ExtResource("4_g6lh5")
+main_animation_player = NodePath("../../BabyAnimPlayer")
+
+[node name="Look" type="Node" parent="StateMachine" unique_id=1748436414 node_paths=PackedStringArray("main_animation_player")]
+script = ExtResource("5_ur13w")
+rand_range = 4
+main_animation_player = NodePath("../../BabyAnimPlayer")
+
+[node name="BabyIdleSprite" type="Sprite2D" parent="." unique_id=1891211842]
+texture = ExtResource("2_gvo00")
+hframes = 3
+
+[node name="BabyTurnSprite" type="Sprite2D" parent="." unique_id=795944565]
+visible = false
+material = SubResource("ShaderMaterial_ovw6n")
+texture = ExtResource("3_ofkgu")
+hframes = 5
+
+[node name="BabyLookSprite" type="Sprite2D" parent="." unique_id=219804062]
+visible = false
+texture = ExtResource("8_odlau")
+
+[node name="BabyAnimPlayer" type="AnimationPlayer" parent="." unique_id=962649608]
+libraries/ = SubResource("AnimationLibrary_g6lh5")
+
+[node name="BabyTurnSound" type="AudioStreamPlayer2D" parent="." unique_id=700025890]

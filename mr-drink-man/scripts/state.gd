@@ -1,8 +1,8 @@
 extends Node
 class_name State
 
-@export var hand_animation_player: AnimationPlayer
-@export var player_animation_player: AnimationPlayer
+@export var main_animation_player: AnimationPlayer
+@export var secondary_animation_player: AnimationPlayer
 
 signal transitioned(state, new_state_name)
 

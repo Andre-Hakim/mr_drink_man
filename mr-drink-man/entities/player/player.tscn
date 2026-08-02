@@ -206,38 +206,40 @@ script = ExtResource("1_symyc")
 initial_state = NodePath("HandEnter")
 metadata/_custom_type_script = "uid://buubvx0dvcf5b"
 
-[node name="HandEnter" type="Node" parent="StateMachine" unique_id=286496203 node_paths=PackedStringArray("hand_animation_player", "player_animation_player")]
+[node name="HandEnter" type="Node" parent="StateMachine" unique_id=286496203 node_paths=PackedStringArray("main_animation_player", "secondary_animation_player")]
 script = ExtResource("3_7thud")
-hand_animation_player = NodePath("../../HandAnimPlayer")
-player_animation_player = NodePath("../../PlayerAnimPlayer")
+main_animation_player = NodePath("../../HandAnimPlayer")
+secondary_animation_player = NodePath("../../PlayerAnimPlayer")
 
-[node name="Idle" type="Node" parent="StateMachine" unique_id=781956945 node_paths=PackedStringArray("hand_animation_player", "player_animation_player")]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=781956945 node_paths=PackedStringArray("main_animation_player", "secondary_animation_player")]
 script = ExtResource("2_abrql")
-hand_animation_player = NodePath("../../HandAnimPlayer")
-player_animation_player = NodePath("../../PlayerAnimPlayer")
+main_animation_player = NodePath("../../HandAnimPlayer")
+secondary_animation_player = NodePath("../../PlayerAnimPlayer")
 
-[node name="Windup" type="Node" parent="StateMachine" unique_id=1629689736 node_paths=PackedStringArray("hand_animation_player", "player_animation_player")]
+[node name="Windup" type="Node" parent="StateMachine" unique_id=1629689736 node_paths=PackedStringArray("main_animation_player", "secondary_animation_player")]
 script = ExtResource("3_bls4j")
-hand_animation_player = NodePath("../../HandAnimPlayer")
-player_animation_player = NodePath("../../PlayerAnimPlayer")
+main_animation_player = NodePath("../../HandAnimPlayer")
+secondary_animation_player = NodePath("../../PlayerAnimPlayer")
 
-[node name="WindupIdle" type="Node" parent="StateMachine" unique_id=362340511]
+[node name="WindupIdle" type="Node" parent="StateMachine" unique_id=362340511 node_paths=PackedStringArray("main_animation_player", "secondary_animation_player")]
 script = ExtResource("6_a1qjk")
+main_animation_player = NodePath("../../HandAnimPlayer")
+secondary_animation_player = NodePath("../../PlayerAnimPlayer")
 
-[node name="Grabbed" type="Node" parent="StateMachine" unique_id=753399545 node_paths=PackedStringArray("hand_animation_player", "player_animation_player")]
+[node name="Grabbed" type="Node" parent="StateMachine" unique_id=753399545 node_paths=PackedStringArray("main_animation_player", "secondary_animation_player")]
 script = ExtResource("4_fkugw")
-hand_animation_player = NodePath("../../HandAnimPlayer")
-player_animation_player = NodePath("../../PlayerAnimPlayer")
+main_animation_player = NodePath("../../HandAnimPlayer")
+secondary_animation_player = NodePath("../../PlayerAnimPlayer")
 
-[node name="RaiseLower" type="Node" parent="StateMachine" unique_id=1473143384 node_paths=PackedStringArray("hand_animation_player", "player_animation_player")]
+[node name="RaiseLower" type="Node" parent="StateMachine" unique_id=1473143384 node_paths=PackedStringArray("main_animation_player", "secondary_animation_player")]
 script = ExtResource("6_qiwj3")
-hand_animation_player = NodePath("../../HandAnimPlayer")
-player_animation_player = NodePath("../../PlayerAnimPlayer")
+main_animation_player = NodePath("../../HandAnimPlayer")
+secondary_animation_player = NodePath("../../PlayerAnimPlayer")
 
-[node name="Drinking" type="Node" parent="StateMachine" unique_id=1920305138 node_paths=PackedStringArray("hand_animation_player", "player_animation_player")]
+[node name="Drinking" type="Node" parent="StateMachine" unique_id=1920305138 node_paths=PackedStringArray("main_animation_player", "secondary_animation_player")]
 script = ExtResource("5_fkugw")
-hand_animation_player = NodePath("../../HandAnimPlayer")
-player_animation_player = NodePath("../../PlayerAnimPlayer")
+main_animation_player = NodePath("../../HandAnimPlayer")
+secondary_animation_player = NodePath("../../PlayerAnimPlayer")
 
 [node name="GuySprite" type="Sprite2D" parent="." unique_id=1577205588]
 texture = ExtResource("8_26q78")

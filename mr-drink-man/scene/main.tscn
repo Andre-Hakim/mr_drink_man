@@ -3,16 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://cel6tbkc4iv4b" path="res://user_interface/background/background.tscn" id="1_0ha60"]
 [ext_resource type="PackedScene" uid="uid://bum7ewp61iw0v" path="res://managers/game_manager/game_manager.tscn" id="1_v0l8b"]
 [ext_resource type="PackedScene" uid="uid://bgo7kekberwmk" path="res://user_interface/press_begin/press_begin.tscn" id="1_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://dp1bcvjfcljsk" path="res://entities/enemies/baby.tscn" id="2_p1hux"]
 [ext_resource type="Script" uid="uid://d2kbjv6mqdnex" path="res://managers/input_manager/input_manager.gd" id="2_v0l8b"]
 [ext_resource type="PackedScene" uid="uid://ys35qp31elf3" path="res://entities/player/player.tscn" id="4_brvut"]
 [ext_resource type="Texture2D" uid="uid://e7b114fpnuxs" path="res://assets/sprites/misc/table_normal.png" id="6_4j5ol"]
+[ext_resource type="PackedScene" uid="uid://cuh51v0dukhr5" path="res://entities/drinks/baby_bottle/baby_bottle.tscn" id="8_of57s"]
 
 [node name="Main" type="Node2D" unique_id=1683398638]
 
 [node name="Background" parent="." unique_id=40100223 instance=ExtResource("1_0ha60")]
 
-[node name="Table" type="Sprite2D" parent="Background" unique_id=1268104392]
-position = Vector2(497.5, 610)
+[node name="Baby" parent="." unique_id=1110065274 instance=ExtResource("2_p1hux")]
+position = Vector2(821, 431)
+
+[node name="Table" type="Sprite2D" parent="." unique_id=1268104392]
+position = Vector2(470, 610)
 scale = Vector2(1.5507813, 1.5344827)
 texture = ExtResource("6_4j5ol")
 
@@ -27,6 +32,9 @@ visible = false
 
 [node name="InputManager" type="Node" parent="Managers" unique_id=1259918203]
 script = ExtResource("2_v0l8b")
+
+[node name="BabyBottle" parent="." unique_id=788895805 instance=ExtResource("8_of57s")]
+position = Vector2(459, 427)
 
 [node name="Player" parent="." unique_id=257907498 instance=ExtResource("4_brvut")]
 position = Vector2(224, 393)
