@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://ifu5tovsis8w"]
+
+[ext_resource type="Texture2D" uid="uid://b0dqmtr1byl34" path="res://assets/backgrounds/bedroom.jpg" id="1_cnf1w"]
+[ext_resource type="Script" uid="uid://daylh6ghq6xwa" path="res://scripts/resources/level_data.gd" id="1_imdmg"]
+
+[resource]
+script = ExtResource("1_imdmg")
+background = ExtResource("1_cnf1w")
+metadata/_custom_type_script = "uid://daylh6ghq6xwa"

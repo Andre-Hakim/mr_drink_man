@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://dtaoxhu0o617p"]
 
+[ext_resource type="PackedScene" uid="uid://cel6tbkc4iv4b" path="res://user_interface/background/background.tscn" id="1_0ha60"]
 [ext_resource type="PackedScene" uid="uid://bum7ewp61iw0v" path="res://managers/game_manager/game_manager.tscn" id="1_v0l8b"]
 [ext_resource type="PackedScene" uid="uid://bgo7kekberwmk" path="res://user_interface/press_begin/press_begin.tscn" id="1_wp4xf"]
 [ext_resource type="Script" uid="uid://d2kbjv6mqdnex" path="res://managers/input_manager/input_manager.gd" id="2_v0l8b"]
 [ext_resource type="PackedScene" uid="uid://ys35qp31elf3" path="res://entities/player/player.tscn" id="4_brvut"]
+[ext_resource type="Texture2D" uid="uid://e7b114fpnuxs" path="res://assets/sprites/misc/table_normal.png" id="6_4j5ol"]
 
 [node name="Main" type="Node2D" unique_id=1683398638]
+
+[node name="Background" parent="." unique_id=40100223 instance=ExtResource("1_0ha60")]
 
 [node name="UICanvas" type="CanvasLayer" parent="." unique_id=98063132]
 
@@ -21,3 +25,8 @@ script = ExtResource("2_v0l8b")
 
 [node name="Player" parent="." unique_id=257907498 instance=ExtResource("4_brvut")]
 position = Vector2(224, 393)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1268104392]
+position = Vector2(627.6875, 610)
+scale = Vector2(2.3930662, 1.5344827)
+texture = ExtResource("6_4j5ol")
