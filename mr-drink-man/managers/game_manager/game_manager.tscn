@@ -1,6 +1,27 @@
 [gd_scene format=3 uid="uid://bum7ewp61iw0v"]
 
 [ext_resource type="Script" uid="uid://5ekqoyjvabdq" path="res://managers/game_manager/game_manager.gd" id="1_lh1k3"]
+[ext_resource type="Script" uid="uid://buubvx0dvcf5b" path="res://scripts/state_machine.gd" id="2_dmudu"]
+[ext_resource type="Script" uid="uid://dakw84f8a5x7" path="res://managers/game_manager/sates/running_state.gd" id="3_q3g20"]
+[ext_resource type="Script" uid="uid://d3jkjn2nf1kfb" path="res://managers/game_manager/sates/lose_state.gd" id="3_xl6yf"]
+[ext_resource type="Script" uid="uid://b7ecw11drmq0n" path="res://managers/game_manager/sates/setup_state.gd" id="4_3hdek"]
+[ext_resource type="Script" uid="uid://ml670r4ncpfp" path="res://managers/game_manager/sates/win_state.gd" id="6_qtb8k"]
 
 [node name="GameManager" type="Node" unique_id=1927945575]
 script = ExtResource("1_lh1k3")
+
+[node name="StateMachine" type="Node" parent="." unique_id=558462502]
+script = ExtResource("2_dmudu")
+metadata/_custom_type_script = "uid://buubvx0dvcf5b"
+
+[node name="Running" type="Node" parent="StateMachine" unique_id=308579107]
+script = ExtResource("3_q3g20")
+
+[node name="Setup" type="Node" parent="StateMachine" unique_id=314114395]
+script = ExtResource("4_3hdek")
+
+[node name="Lose" type="Node" parent="StateMachine" unique_id=14721550]
+script = ExtResource("3_xl6yf")
+
+[node name="Win" type="Node" parent="StateMachine" unique_id=1591454722]
+script = ExtResource("6_qtb8k")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dtaoxhu0o617p"]
 
 [ext_resource type="PackedScene" uid="uid://bum7ewp61iw0v" path="res://managers/game_manager/game_manager.tscn" id="1_v0l8b"]
-[ext_resource type="Script" uid="uid://d2kbjv6mqdnex" path="res://managers/input_manager.gd" id="2_v0l8b"]
+[ext_resource type="Script" uid="uid://d2kbjv6mqdnex" path="res://managers/input_manager/input_manager.gd" id="2_v0l8b"]
 
 [node name="Main" type="Node2D" unique_id=1683398638]
 
