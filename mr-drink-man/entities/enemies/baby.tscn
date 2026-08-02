@@ -241,10 +241,10 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("BabyTurnSprite:material:shader_parameter/tint_factor")
-tracks/4/interp = 1
+tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.04906348, 0.10551328, 0.16308099, 0.21214446, 0.26859426, 0.32919648, 0.37825996, 0.43470976, 0.4979762, 0.5470397, 0.6034895, 0.6621943, 0.7112578, 0.7677076, 0.816529, 0.8655925, 0.92204225),
+"times": PackedFloat32Array(0, 0.05058402, 0.10551328, 0.16232072, 0.21214446, 0.26859426, 0.32919648, 0.37825996, 0.43470976, 0.4979762, 0.5470397, 0.6034895, 0.6621943, 0.7112578, 0.7677076, 0.816529, 0.8655925, 0.92204225),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]
